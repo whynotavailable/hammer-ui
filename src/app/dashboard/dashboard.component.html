@@ -1,0 +1,17 @@
+<h1>Dashboard</h1>
+
+<div class="row" style="margin-bottom: 1rem">
+  <div class="col-12">
+    <a routerLink="/test/create" class="btn btn-primary">Start Test</a>
+  </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let test of tests" class="col-lg-6" style="margin-bottom: 2rem">
+    <div class="card">
+      <div class="card-body">
+        Test {{test.Lease}}: {{test.State}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hammer-ui"
+    }
+  },
+  "defaultProject": "hammer-ui",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,35 @@
+<h1>Results for test</h1>
+
+<div class="row" *ngFor="let result of results" style="margin-bottom: 1rem">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        Results from server {{result.ServerID}}
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Target</th>
+              <th>Requests</th>
+              <th>50th Percentile</th>
+              <th>90th Percentile</th>
+              <th>99th Percentile</th>
+              <th>Requests Per Second</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let target of result.Results">
+              <td>{{target.Target}}</td>
+              <td>{{target.Requests}}</td>
+              <td>{{target.P50}} ms</td>
+              <td>{{target.P90}} ms</td>
+              <td>{{target.P99}} ms</td>
+              <td>{{target.RequestsPerSecond}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

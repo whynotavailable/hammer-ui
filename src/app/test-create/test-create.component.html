@@ -1,0 +1,53 @@
+<h1>Start a Test!</h1>
+
+<div class="row">
+  <div class="col-6">
+    <div>
+      <div class="form-group">
+        <label for="length">Time in Seconds</label>
+        <input [(ngModel)]="length" type="text" type="number" class="form-control" id="length">
+      </div>
+      <div class="form-group">
+        <label for="vus">Virtual Users</label>
+        <input [(ngModel)]="virtualUsers" type="number" type="number" class="form-control" id="vus">
+      </div>
+      <div *ngFor="let target of targets" class="card" style="margin-bottom: 1rem">
+        <div class="card-body">
+          <div class="form-group">
+            <label [for]="'uri' + target.id">URI</label>
+            <input [(ngModel)]="target.uri" class="form-control" [id]="'uri' + target.id" type="text">
+          </div>
+          <div class="form-group">
+            <label [for]="'method' + target.id">Method</label>
+            <select [(ngModel)]="target.method" class="form-control" [id]="'method' + target.id">
+              <option value="GET">GET</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label [for]="'headers' + target.id">Headers</label>
+            <textarea [(ngModel)]="target.headers" [id]="'headers' + target.id" rows="3" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label [for]="'body' + target.id">Body</label>
+            <textarea [(ngModel)]="target.body" [id]="'body' + target.id" rows="3" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="card-footer" style="text-align: right">
+          <button (click)="removeTarget(target.id)" class="btn btn-sm btn-warning">Delete</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <p>Select your servers</p>
+        <div *ngFor="let server of servers">
+          <label [for]="'server' + server.id">{{server.id}}</label>
+          &nbsp;&nbsp;
+          <input [(ngModel)]="server.selected" [id]="'server' + server.id" type="checkbox">
+        </div>
+      </div>
+      <div class="btn-group">
+        <button (click)="addTarget()" class="btn btn-secondary">Add Target</button>
+        <button (click)="createTest()" class="btn btn-primary">Create!</button>
+      </div>
+    </div>
+  </div>
+</div>
